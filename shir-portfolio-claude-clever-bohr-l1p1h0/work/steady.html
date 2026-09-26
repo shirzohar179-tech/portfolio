@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Steady — Case study · Shir</title>
+  <meta name="description" content="Redesigning onboarding for a journaling app so new users write their first entry instead of dropping off.">
+  <meta property="og:title" content="Steady — Case study · Shir">
+  <meta property="og:description" content="Redesigning onboarding for a journaling app so new users write their first entry instead of dropping off.">
+  <meta name="theme-color" content="#f8f6f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300..600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="brand" href="../">
+        <strong>Shir<span>.</span></strong>
+        <small>UX/UI Designer · Israel</small>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../#work" aria-current="page">Work</a></li>
+          <li><a href="../#about">About</a></li>
+          <li><a href="../#contact">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <header class="cs-hero container">
+      <a class="back-link" href="../#work">← All work</a>
+      <p class="label">Case study 01 · Mobile app</p>
+      <h1>Steady — a first entry, <em>not</em> a sign-up wall</h1>
+      <p class="lead">New users of a journaling app were asked for an account, a goal and notification settings before they could write a single word. I redesigned onboarding around one idea: let people feel the value first.</p>
+    </header>
+
+    <div class="container">
+      <!-- EDIT: replace this cover with a real hero image:
+           <div class="cover"><img src="../images/steady-cover.jpg" alt="..."></div> -->
+      <div class="cs-cover">
+        <div class="cover cover-steady"><div class="cover-inner"><div class="phone" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div></div>
+      </div>
+
+      <dl class="cs-meta">
+        <div><dt>Role</dt><dd>UX/UI designer (solo)</dd></div>
+        <div><dt>Timeline</dt><dd>4 weeks</dd></div>
+        <div><dt>Context</dt><dd>[Bootcamp name] project</dd></div>
+        <div><dt>Tools</dt><dd>Figma, FigJam, Maze</dd></div>
+      </dl>
+
+      <article class="prose">
+        <!-- EDIT: delete this note once the case study is real -->
+        <p class="draft-note"><strong>Sample case study.</strong> This page shows the structure and storytelling of a strong UX case study. Replace the text, numbers and images with Shir's real project before publishing.</p>
+
+        <section>
+          <h2><span class="step">01 — The problem</span>People came to write. We asked them to <em>fill in forms</em>.</h2>
+          <p>Steady is a (fictional) journaling app. Its onboarding had seven screens: create an account, pick goals, choose a writing time, allow notifications, and only then an empty page.</p>
+          <p>The brief was to increase the number of new users who complete their first journal entry. My working hypothesis: <strong>the value arrives too late</strong>, so people leave before they ever experience it.</p>
+        </section>
+
+        <section>
+          <h2><span class="step">02 — Research</span>Talking to people who <em>stopped</em> journaling</h2>
+          <p>I interviewed six people who had tried a journaling app and given up, reviewed the onboarding of five competing apps, and ran a short survey with 40 respondents about when and why they write.</p>
+          <blockquote class="pull-quote">
+            <p>I just wanted to get one thing out of my head, and it asked me for my goals for the year.</p>
+            <footer>— Interview participant, 27</footer>
+          </blockquote>
+          <aside class="psych-callout" aria-label="The psychology behind it">
+            <span class="label">The psychology behind it</span>
+            <h3>Start people <em>halfway</em> there</h3>
+            <p>BJ Fogg's behavior model says an action happens when motivation, ability and a prompt meet. At install, motivation is at its peak, but a long setup drains ability exactly when it matters most.</p>
+            <p>The <em>endowed progress effect</em> (Nunes &amp; Drèze, 2006) adds that people are more likely to finish something when they feel they have already started. So the first screen should be real progress, not paperwork.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2><span class="step">03 — Insights</span>What I learned</h2>
+          <ol class="insights">
+          <li><span>The first session is emotional, not administrative. People open the app because something is on their mind <em>right now</em>.</span></li>
+          <li><span>A blank page is intimidating. Five of six participants said a gentle prompt would have helped them start.</span></li>
+          <li><span>Commitment grows after the first entry, not before. People were happy to create an account once they had something worth saving.</span></li>
+          </ol>
+        </section>
+
+        <section>
+          <h2><span class="step">04 — Ideation</span>Flipping the order</h2>
+          <p>I mapped the existing flow and sketched three alternatives. The winning direction moved writing to the very first screen and deferred everything else until after the first entry was saved.</p>
+          <figure class="figure">
+          <div class="placeholder"><div><strong>Sketches &amp; user flow</strong>Replace with a photo of paper sketches or a FigJam flow diagram.</div></div>
+        </figure>
+          <figure class="figure">
+          <div class="placeholder"><div><strong>Low-fidelity wireframes</strong>Replace with a Figma export of the key wireframes.</div></div>
+        </figure>
+        </section>
+
+        <section>
+          <h2><span class="step">05 — Final design</span>Write first, set up later</h2>
+          <p>The new flow opens straight to a single, friendly prompt. Account creation appears only when the user saves, framed as "keep this entry safe". Reminder settings come last, based on the time the person actually wrote.</p>
+          <figure class="figure figure-wide">
+          <div class="figure-row">
+            <div class="placeholder"><div><strong>Prompted first entry</strong>One question, a large text field, no chrome.</div></div>
+            <div class="placeholder"><div><strong>Save to keep it</strong>Account creation framed around protecting the entry.</div></div>
+            <div class="placeholder"><div><strong>A reminder that fits</strong>Suggests the time the person just wrote.</div></div>
+          </div>
+        </figure>
+        </section>
+
+        <section>
+          <h2><span class="step">06 — Testing</span>Testing with five people</h2>
+          <p>I ran an unmoderated prototype test in Maze with five participants who had never used a journaling app, comparing the old and new flows.</p>
+          <div class="stats">
+          <div class="stat"><span class="stat-num">5 / 5</span><p>participants wrote a first entry in the new flow (vs. 2 / 5 in the old one)</p></div>
+          <div class="stat"><span class="stat-num">~40s</span><p>median time to the first entry, down from about 3 minutes</p></div>
+          <div class="stat"><span class="stat-num">4 / 5</span><p>chose to create an account after writing</p></div>
+          </div>
+          <p>These are small-sample, directional results. They show the idea is worth building, not that it will move retention by a specific amount.</p>
+        </section>
+
+        <section>
+          <h2><span class="step">07 — Reflection</span>What I'd do next</h2>
+          <p>If I continued this project I would measure 7-day retention with a live beta, test the prompt copy with a wider range of people, and look closely at accessibility of reminders for people who journal to manage anxiety.</p>
+          <p>The biggest lesson for me: <strong>the order of steps is itself a design decision</strong>, and sometimes the best onboarding is almost no onboarding.</p>
+        </section>
+      </article>
+    </div>
+
+    <div class="container">
+      <a class="next-project" href="pantry.html">
+        <span class="label">Next project</span>
+        <span class="display">Pantry</span>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span data-year>2026</span> Shir</span>
+      <span>Designed &amp; built with care</span>
+    </div>
+  </footer>
+</body>
+</html>

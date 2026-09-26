@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Type Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f8f6f1;
+    --ink: #1c1c1f;
+    --muted: rgba(28, 28, 31, 0.6);
+    --faint: rgba(28, 28, 31, 0.32);
+    --line: rgba(28, 28, 31, 0.14);
+    --accent: #c2562f;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #e9e6df; color: var(--ink); font-family: "Geist", system-ui, sans-serif; }
+  .page { max-width: 1320px; margin: 0 auto; padding: 40px 24px 80px; }
+  .page > header h1 { font-weight: 500; font-size: 22px; margin: 0 0 6px; }
+  .page > header p { margin: 0 0 32px; color: #555; }
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(560px, 1fr)); }
+  @media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
+
+  .opt { background: var(--paper); border-radius: 4px; overflow: hidden; border: 1px solid rgba(0,0,0,.06); }
+  .opt-tag { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: var(--ink); color: #f8f6f1; font: 500 13px/1.2 "Geist", sans-serif; letter-spacing: .02em; }
+  .opt-tag span:last-child { opacity: .65; font-weight: 400; }
+  .mock { padding: 28px 32px 36px; }
+  .bar { display: flex; justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 36px; }
+  .status { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; margin-bottom: 22px; }
+  .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #2f9e62; }
+  .h { margin: 0 0 24px; }
+  .body { max-width: 46ch; margin: 0 0 28px; }
+  .rows { border-top: 1px solid var(--line); }
+  .row { display: grid; grid-template-columns: 64px 1fr auto; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .row .t { font-size: 22px; }
+  .row .m { color: var(--muted); }
+  .why { padding: 18px 32px 24px; border-top: 1px solid var(--line); font: 14px/1.55 "Geist", sans-serif; color: #444; background: #f2efe8; }
+  .why b { color: var(--ink); }
+
+  /* A — Dossier serif */
+  .a .bar, .a .status, .a .label, .a .row .n { font: 400 11px/1.2 "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .a .h { font: 400 64px/0.98 "Newsreader", serif; letter-spacing: -0.025em; }
+  .a .h em { color: var(--accent); }
+  .a .body { font: 400 18px/1.6 "Newsreader", serif; color: var(--muted); }
+  .a .row .t { font-family: "Newsreader", serif; }
+
+  /* B — Studio sans, two-tone */
+  .b .bar, .b .status, .b .label, .b .row .n { font: 400 13px/1.2 "Geist", sans-serif; color: var(--muted); }
+  .b .h { font: 400 60px/1.02 "Geist", sans-serif; letter-spacing: -0.035em; }
+  .b .h .dim { color: var(--faint); }
+  .b .h .dot { color: var(--accent); }
+  .b .body { font: 400 17px/1.6 "Geist", sans-serif; color: var(--muted); }
+  .b .row .t { font-family: "Geist", sans-serif; letter-spacing: -0.02em; }
+
+  /* C — Hybrid: Instrument Serif display + Geist body + Geist Mono labels */
+  .c .bar, .c .status, .c .label, .c .row .n { font: 400 11px/1.2 "Geist Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .c .h { font: 400 72px/0.94 "Instrument Serif", serif; letter-spacing: -0.02em; }
+  .c .h em { color: var(--accent); }
+  .c .body { font: 400 17px/1.6 "Geist", sans-serif; color: var(--muted); }
+  .c .row .t { font-family: "Instrument Serif", serif; font-size: 26px; }
+
+  /* D — Warm soft serif + expressive grotesk */
+  .d .bar, .d .status, .d .label, .d .row .n { font: 500 12px/1.2 "Bricolage Grotesque", sans-serif; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .d .h { font: 300 62px/1 "Fraunces", serif; letter-spacing: -0.03em; font-variation-settings: "SOFT" 100; }
+  .d .h em { color: var(--accent); font-weight: 300; }
+  .d .body { font: 400 17px/1.6 "Bricolage Grotesque", sans-serif; color: var(--muted); }
+  .d .row .t { font-family: "Fraunces", serif; font-weight: 400; }
+
+  /* Accent strip */
+  .accents { margin-top: 40px; }
+  .accents h2 { font-weight: 500; font-size: 18px; margin: 0 0 6px; }
+  .accents > p { margin: 0 0 20px; color: #555; }
+  .sw-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+  .sw { background: var(--paper); border: 1px solid rgba(0,0,0,.06); border-radius: 4px; padding: 24px; }
+  .sw .h { font: 400 46px/0.98 "Instrument Serif", serif; letter-spacing: -0.02em; margin: 0 0 16px; }
+  .sw .chip { display: flex; align-items: center; gap: 10px; font: 400 12px "Geist Mono", monospace; color: var(--muted); }
+  .sw .chip i { width: 22px; height: 22px; border-radius: 2px; display: inline-block; }
+  .sw .note { font-size: 14px; color: #555; margin: 10px 0 0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>Typography directions for Shir's portfolio</h1>
+    <p>Same content, same warm-paper palette and hairline layout (from the references). Only the type system changes.</p>
+  </header>
+
+  <div class="grid">
+    <!-- A -->
+    <section class="opt a">
+      <div class="opt-tag"><span>A — Dossier</span><span>Newsreader + JetBrains Mono</span></div>
+      <div class="mock">
+        <div class="bar"><span>Shir · UX/UI Portfolio</span><span>Work · About · Contact</span></div>
+        <div class="status">Open to junior UX/UI roles</div>
+        <h2 class="h">I design for how people <em>actually</em> think.</h2>
+        <p class="body">Psychology student turned UX/UI designer. I bring what I learned about attention, memory and motivation into interfaces that feel obvious.</p>
+        <div class="label" style="margin-bottom:10px">§ I — Selected work</div>
+        <div class="rows">
+          <div class="row"><span class="n">01</span><span class="t">Steady — journaling onboarding</span><span class="m label">Mobile</span></div>
+        </div>
+      </div>
+      <div class="why"><b>Feel:</b> literary, researcher's notebook. <b>Closest to ofek.pm.</b> Trade-off: nearly the same fonts as your site, so Shir's would look like a sibling of yours.</div>
+    </section>
+
+    <!-- B -->
+    <section class="opt b">
+      <div class="opt-tag"><span>B — Studio</span><span>Geist only, two-tone</span></div>
+      <div class="mock">
+        <div class="bar"><span>Shir.</span><span>Work &nbsp; About &nbsp; Contact</span></div>
+        <div class="status">Open to junior UX/UI roles</div>
+        <h2 class="h">Designer <span class="dim">shaping interfaces around</span> how people think<span class="dot">.</span></h2>
+        <p class="body">Psychology student turned UX/UI designer. I bring what I learned about attention, memory and motivation into interfaces that feel obvious.</p>
+        <div class="label" style="margin-bottom:10px">Selected work</div>
+        <div class="rows">
+          <div class="row"><span class="n">01</span><span class="t">Steady — journaling onboarding</span><span class="m label">Mobile</span></div>
+        </div>
+      </div>
+      <div class="why"><b>Feel:</b> calm, precise, "product designer". <b>Closest to Arturo.</b> Trade-off: very clean, but the least personal. Many design portfolios look like this.</div>
+    </section>
+
+    <!-- C -->
+    <section class="opt c">
+      <div class="opt-tag"><span>C — Hybrid (recommended)</span><span>Instrument Serif + Geist + Geist Mono</span></div>
+      <div class="mock">
+        <div class="bar"><span>Shir — UX/UI</span><span>Work · About · Contact</span></div>
+        <div class="status">Open to junior UX/UI roles</div>
+        <h2 class="h">I design for how people <em>actually</em> think.</h2>
+        <p class="body">Psychology student turned UX/UI designer. I bring what I learned about attention, memory and motivation into interfaces that feel obvious.</p>
+        <div class="label" style="margin-bottom:10px">01 / Selected work</div>
+        <div class="rows">
+          <div class="row"><span class="n">01</span><span class="t">Steady — journaling onboarding</span><span class="m label">Mobile</span></div>
+        </div>
+      </div>
+      <div class="why"><b>Feel:</b> editorial headline, modern-product body. Takes Ofek's serif drama and Arturo's clean sans. Trade-off: the display serif only has one weight, so headlines must stay large.</div>
+    </section>
+
+    <!-- D -->
+    <section class="opt d">
+      <div class="opt-tag"><span>D — Warm human</span><span>Fraunces (soft) + Bricolage Grotesque</span></div>
+      <div class="mock">
+        <div class="bar"><span>Shir · UX/UI</span><span>Work · About · Contact</span></div>
+        <div class="status">Open to junior UX/UI roles</div>
+        <h2 class="h">I design for how people <em>actually</em> think.</h2>
+        <p class="body">Psychology student turned UX/UI designer. I bring what I learned about attention, memory and motivation into interfaces that feel obvious.</p>
+        <div class="label" style="margin-bottom:10px">Selected work</div>
+        <div class="rows">
+          <div class="row"><span class="n">01</span><span class="t">Steady — journaling onboarding</span><span class="m label">Mobile</span></div>
+        </div>
+      </div>
+      <div class="why"><b>Feel:</b> soft, friendly, a bit quirky. Most "psychology & people". Trade-off: furthest from both references; less sharp and minimal.</div>
+    </section>
+  </div>
+
+  <section class="accents">
+    <h2>Accent color options (shown with direction C)</h2>
+    <p>One accent only, used on a word or two and on tiny details, like ofek.pm's amber. Or none, like Arturo.</p>
+    <div class="sw-grid">
+      <div class="sw"><h3 class="h">For how people <em style="color:#c2562f">actually</em> think.</h3><div class="chip"><i style="background:#c2562f"></i>#C2562F · terracotta</div><p class="note">Warm and human; a softer cousin of red.</p></div>
+      <div class="sw"><h3 class="h">For how people <em style="color:#5b6b3a">actually</em> think.</h3><div class="chip"><i style="background:#5b6b3a"></i>#5B6B3A · olive</div><p class="note">Calm and grounded, unusual in portfolios.</p></div>
+      <div class="sw"><h3 class="h">For how people <em style="color:#3148c9">actually</em> think.</h3><div class="chip"><i style="background:#3148c9"></i>#3148C9 · ink blue</div><p class="note">Smart and research-y, like a fountain-pen note.</p></div>
+      <div class="sw"><h3 class="h">For how people <em style="color:rgba(28,28,31,.32)">actually</em> think.</h3><div class="chip"><i style="background:rgba(28,28,31,.32)"></i>Mono gray · no color</div><p class="note">Arturo-style restraint; the work supplies the color.</p></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
